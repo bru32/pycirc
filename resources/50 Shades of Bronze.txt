@@ -1,0 +1,55 @@
+50 Shades of Bronze
+https://creativebooster.net/blogs/colors/shades-of-bronze-color
+
+Color  HEX  RGB  CMYK
+Bronze  #CD7F32  205, 127, 50  0, 38, 76, 20
+Light Bronze  #DAAA5E  218, 170, 94  0, 22, 57, 15
+Dark Bronze  #804A00  128, 74, 0  0, 42, 100, 50
+Bronze Skin  #C76D40  199, 109, 64  0, 45, 68, 22
+Bronze Gold  #E5A01D  229, 160, 29  0, 30, 87, 10
+Metallic Bronze  #A97142  169, 113, 66  0, 33, 61, 34
+Bronze Beige  #B5975C  181, 151, 92  0, 17, 49, 29
+Orange Bronze  #B1560F  177, 86, 15  0, 51, 92, 31
+American Bronze  #391802  57, 24, 2  0, 58, 96, 78
+Glossy Bronze  #E4953C  228, 149, 60  0, 35, 74, 11
+Antique Bronze  #665D1E  102, 93, 30  0, 9, 71, 60
+Arabian Bronze  #D59940  213, 153, 64  0, 28, 70, 16
+Autumn Bronze  #C66D00  198, 109, 0  0, 45, 100, 22
+Black Bronze  #1F1D1B  31, 29, 27  0, 6, 13, 88
+Blast-Off Bronze  #A57164  165, 113, 100  0, 32, 39, 35
+Bronze Blush  #DCA56E  220, 165, 110  0, 25, 50, 14
+Bronze Brown  #825E2F  130, 94, 47  0, 28, 64, 49
+Bronze CMYK  #D0A234  208, 162, 52  0, 22, 75, 18
+Bronze Coin  #A87D0D  168, 125, 13  0, 26, 92, 34
+Bronze Eucalyptus  #AA6B3B  170, 107, 59  0, 37, 65, 33
+Bronze Glitter  #EB9D36  235, 157, 54  0, 33, 77, 8
+Bronze Green  #8D8752  141, 135, 82  0, 4, 42, 45
+Bronze Green (Pantone)  #525F48  82, 95, 72  14, 0, 24, 63
+Bronze Mist  #9C7E41  156, 126, 65  0, 19, 58, 39
+Bronze Pastel  #A48347  164, 131, 71  0, 20, 57, 36
+Bronze Red  #B26A58  178, 106, 88  0, 40, 51, 30
+Bronze Sand  #CA8818  202, 136, 24  0, 33, 88, 21
+Bronze Toffee  #7E4113  126, 65, 19  0, 48, 85, 51
+Bronze Yellow  #737000  115, 112, 0  0, 3, 100, 55
+Burnished Bronze  #5A3211  90, 50, 17  0, 44, 81, 65
+Chinese Bronze  #CD8032  205, 128, 50  0, 38, 76, 20
+Classic Bronze  #BB891E  187, 137, 30  0, 27, 84, 27
+Corinthian Bronze  #6C584F  108, 88, 79  0, 19, 27, 58
+Deep Bronze  #9F6700  159, 103, 0  0, 35, 100, 38
+Dull Bronze  #A57164  165, 113, 100  0, 32, 39, 35
+El Greco Bronze  #C2783F  194, 120, 63  0, 38, 68, 24
+Golden Bronze  #B47C04  180, 124, 4  0, 31, 98, 29
+Honey Bronze  #BF7D10  191, 125, 16  0, 35, 92, 25
+Intense Bronze  #C5832B  197, 131, 43  0, 34, 78, 23
+Jungle Bronze  #AA720E  170, 114, 14  0, 33, 92, 33
+Matte Bronze  #B4945A  180, 148, 90  0, 18, 50, 29
+Medal Bronze  #977547  151, 117, 71  0, 23, 53, 41
+Moss Bronze  #535447  83, 84, 71  1, 0, 15, 67
+Muted Bronze  #CEA175  206, 161, 117  0, 22, 43, 19
+Mystic Bronze  #CF943A  207, 148, 58  0, 29, 72, 19
+Nouveau Bronze  #80655C  128, 101, 92  0, 21, 28, 50
+Pale Bronze  #DDB472  221, 180, 114  0, 19, 48, 13
+Philippine Bronze  #6E3A07  110, 58, 7  0, 47, 94, 57
+Relic Bronze  #906A3A  144, 106, 58  0, 26, 60, 44
+Rich Bronze  #C77D1C  199, 125, 28  0, 37, 86, 22
+Rustic Bronze  #CC9054  204, 144, 84  0, 29, 59, 20

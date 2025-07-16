@@ -1,0 +1,55 @@
+50 Shades of copper
+https://creativebooster.net/blogs/colors/shades-of-copper-color
+
+Color  HEX  RGB  CMYK
+Copper  #B87333  184, 115, 51  0, 38, 72, 28
+Dark Copper  #5D2D24  93, 45, 36  0, 52, 61, 64
+Light Copper  #E69E7F  230, 158, 127  0, 31, 45, 10
+Copper Red  #CB6D51  203, 109, 81  0, 46, 60, 20
+Medium Copper  #893727  137, 55, 39  0, 60, 72, 46
+Burnt Copper  #C56A39  197, 106, 57  0, 46, 71, 23
+Pale Copper  #DA8A67  218, 138, 103  0, 37, 53, 15
+Copper rose  #996666  153, 102, 102  0, 33, 33, 40
+Ancient Copper  #9F543E  159, 84, 62  0, 47, 61, 38
+Antique Copper  #9E6649  158, 102, 73  0, 35, 54, 38
+Autumn Copper  #A96854  169, 104, 84  0, 38, 50, 34
+Beaten Copper  #73372D  115, 55, 45  0, 52, 61, 55
+Beauty Copper  #D0917F  208, 145, 127  0, 30, 39, 18
+Brushed Copper  #AA6C51  170, 108, 81  0, 36, 52, 33
+Burnished Copper  #BB8833  187, 136, 51  0, 27, 73, 27
+Canadian Copper  #BB6622  187, 102, 34  0, 45, 82, 27
+Classic Copper  #CE7C56  206, 124, 86  0, 40, 58, 19
+Copper (Pantone)  #AD6B4E  173, 107, 78  0, 38, 55, 32
+Copper Beige  #D49A83  212, 154, 131  0, 27, 38, 17
+Copper Blush  #D69782  214, 151, 130  0, 29, 39, 16
+Copper Brown  #915136  145, 81, 54  0, 44, 63, 43
+Copper Coin  #BA6B57  186, 107, 87  0, 42, 53, 27
+Copper Gold  #B97B58  185, 123, 88  0, 34, 52, 27
+Copper Mineral Green  #398174  57, 129, 116  56, 0, 10, 49
+Copper Oxide  #70B596  112, 181, 150  38, 0, 17, 29
+Copper Patina  #398174  57, 129, 116  56, 0, 10, 49
+Copper Penny  #AD6F69  173, 111, 105  0, 36, 39, 32
+Copper Pink  #946877  148, 104, 119  0, 30, 20, 42
+Copper Rust  #7CB5AD  124, 181, 173  31, 0, 4, 29
+Copper Shimmer  #CE8350  206, 131, 80  0, 36, 61, 19
+Copper Sulphate  #0190EE  1, 144, 238  100, 39, 0, 7
+Copper Tan  #DE8E65  222, 142, 101  0, 36, 55, 13
+Terracotta  #E2725B  226, 114, 91  0, 50, 60, 11
+Dull Copper  #B47360  180, 115, 96  0, 36, 47, 29
+Hammered Copper  #834831  131, 72, 49  0, 45, 63, 49
+Kenyan Copper  #7C1C05  124, 28, 5  0, 77, 96, 51
+Matte Copper  #B47963  180, 121, 99  0, 33, 45, 29
+Melted Copper  #CE8544  206, 133, 68  0, 35, 67, 19
+Metallic Copper  #71291D  113, 41, 29  0, 64, 74, 56
+Old Copper  #AB7661  171, 118, 97  0, 31, 43, 33
+Pastel Copper  #DD8C58  221, 140, 88  0, 37, 60, 13
+Pearl Copper (RAL)  #7D4031  125, 64, 49  0, 49, 61, 51
+Polished Copper  #B66325  182, 99, 37  0, 46, 80, 29
+Raw Copper  #C46B51  196, 107, 81  0, 45, 59, 23
+Rose Copper  #996666  153, 102, 102  0, 33, 33, 40
+Rustic Copper  #CF8F5F  207, 143, 95  0, 31, 54, 19
+Shiny Copper  #DD8343  221, 131, 67  0, 41, 70, 13
+True Copper  #8B5643  139, 86, 67  0, 38, 52, 45
+Vintage Copper  #9D5F46  157, 95, 70  0, 39, 55, 38
+Ginger  #B26336  178, 99, 54  0, 44, 70, 30
+Copper Skin  #AF5733  175, 87, 51  0, 50, 71, 31
