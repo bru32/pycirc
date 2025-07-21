@@ -24,8 +24,8 @@ colors = {
   "circ2": "tomato"}
 
 class Pattern(StrEnum):
-  STAGGERED: str = "staggered"
-  INLINE: str = "inline"
+  STAGGERED = "staggered"
+  INLINE = "inline"
 
 def write_note(canvas, xy, text):
   x = xy["x"]
@@ -41,7 +41,7 @@ class TubeBank(tk.Tk):
   # sy = tube high 1½" = 3*25.4/2 = 38.1mm
   # sx = rows deep √(sy² - ½sy²) = sy*√(3/4) = 0.866*sy = 32.9946mm
   # sx, sy = 32.9946, 38.1  # typical 1/2" coil
-  sy = 38  # more suitable for a neater plot
+  sy = 19  # more suitable for a neater plot
   sx = 33  # keep same proportion (0.866*30=25.98)
 
   def __init__(self, title="App", 
@@ -87,16 +87,22 @@ class TubeBank(tk.Tk):
 
     self.canvas.delete("all")
 
-    # prepare ...
-    self.tube_pos = defaultdict(list[int])
+    self.to_coord = defaultdict(lambda: (-1,-1))
+    self.to_index = defaultdict(lambda: None)
+    
     self.generate_index()
+
     self.draw_end_plate()
 
     # Notes
     xy = {"x": 280, "y": 20}
-    for note in ["6 rows deep", "14 tubes high", 
-      "7 circuits", "12 tubes per circuit"]:
+    for note in [
+      "6 rows deep", 
+      "14 tubes high", 
+      "4 circuits", 
+      "21 tubes/circ"]:
       write_note(self.canvas, xy, note)
+
 
   def generate_index(self):
     """ Generate tube index dictionary.
@@ -109,15 +115,21 @@ class TubeBank(tk.Tk):
     tubeshigh = self.tubeshigh
     rowsdeep = self.rowsdeep
     staggered = self.staggered
-    self.tube_pos.clear()
-    for r in range(rowsdeep):
-      x = x0 + r * sx
-      if staggered:
-        dt = 0 if r % 2 == 0 else 0.5
-      for t in range(tubeshigh):
-        y = y0 + (t + dt) * sy
-        k = r + t * rowsdeep
-        self.tube_pos[k] = (x, y)
+    
+    self.to_coord.clear()
+    self.to_index.clear()
+
+    cols, rows = rowsdeep, 2*tubeshigh
+    k = 0
+    for r in range(rows):
+      y = y0 + r * sy
+      col0 = r % 2
+      for c in range(col0, cols, 2):
+        x = x0 + c * sx
+        coord = (x,y)
+        self.to_coord[k] = coord
+        self.to_index[coord] = k
+        k += 1
 
   def draw_end_plate(self):
     """ draw end-plate
@@ -128,7 +140,7 @@ class TubeBank(tk.Tk):
     sy = TubeBank.sy
     dt = 0.5 if self.staggered else 0
     x1 = x0 + sx*(self.rowsdeep - 1)
-    y1 = y0 + sy*(self.tubeshigh - 1 + dt)
+    y1 = y0 + 2*sy*(self.tubeshigh - 1 + dt)
     g = sx/2
     coords = x0-g, y0-g, x1+g, y1+g
     self.canvas.create_rectangle(coords,
@@ -138,8 +150,8 @@ class TubeBank(tk.Tk):
     """ draw all tubes in bank
     """
     r = 5  # sized for looks, not proportional.
-    for k, (x, y) in self.tube_pos.items():
-      self.canvas.create_hexagon(x, y, r,
+    for k, (x, y) in self.to_coord.items():
+      self.canvas.create_circle(x, y, r,
         width=1, outline="#555555",
         fill=colors["tube"])
 
@@ -154,30 +166,23 @@ class TubeBank(tk.Tk):
     for i, circ in enumerate(circs):
       points = []
       for k in circ:
-        cp = self.tube_pos[k]
+        cp = self.to_coord[k]
         points.append(cp)
 
       # draw circ
       color = colors["circ1"] if i % 2 == 0 else colors["circ2"]
       self.canvas.create_line(points, width=3, fill=color)
 
-  def calc_circ(self):
-
-    circs = [(0,2,4,5,3,1,8,10,11,9,16,17),
-      (6,7,12,14,13,15,20,22,21,23,28,29),
-      (18,19,24,26,25,27,32,34,33,35,40,41),
-      (30,31,36,38,37,39,44,46,45,47,52,53),
-      (42,43,48,50,49,51,56,58,57,59,64,65),
-      (54,55,60,62,61,63,68,70,69,71,76,77),
-      (66,67,72,74,73,75,82,80,78,79,81,83)]
-
+  def calc_circ(self, nc):
+    circs = calc(self.tubeshigh, self.rowsdeep, nc)
     return circs
+
 
 if __name__ == "__main__":
 
   tubebank = TubeBank(title="CoilCirc", 
     tubeshigh=14, rowsdeep=6, pattern="staggered")
-  circ = tubebank.calc_circ()
+  circ = tubebank.calc_circ(2)
   tubebank.draw_circs(circ)
   tubebank.draw_tubes()
   tubebank.mainloop()
