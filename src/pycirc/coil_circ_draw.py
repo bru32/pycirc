@@ -1,8 +1,12 @@
-# Experiment1
+""" Coil Circuit Drawing tool.
+"""
+
+__author__ = "Bruce Wernick"
+__date__ = "21 July 2025"
 
 import tkinter as tk
 from tkmonkey import *
-from test2 import calc
+from coil_circ_calc import calc
 
 # global parameters
 x0, y0 = 40, 10

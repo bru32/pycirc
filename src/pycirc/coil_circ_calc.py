@@ -1,4 +1,9 @@
-# test2
+""" Coil Circuit Calculator.
+"""
+
+__author__ = "Bruce Wernick"
+__date__ = "21 July 2025"
+
 
 from collections import defaultdict
 from itertools import islice
@@ -146,6 +151,7 @@ def find_ham_path(graph, start, goal):
           return new_path
 
   return search_from(start)
+
 
 def chunk(arr_range, arr_size):
   arr_range = iter(arr_range)
