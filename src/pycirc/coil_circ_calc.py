@@ -2,14 +2,20 @@
 """
 
 __author__ = "Bruce Wernick"
-__date__ = "21 July 2025"
+__date__ = "22 July 2025"
 
 
 from collections import defaultdict
 from itertools import islice
 
+__all__ = ["calc_circs"]
+
 
 def create_rcmap(tubeshigh, rowsdeep):
+  """ Calculate a mapping between (row,column) and index k.
+      So, knowing the row and column of a tube, you can
+      get the index by simply k = RC[(r,c)]
+  """
   RC = defaultdict(lambda: None)
   cols, rows = rowsdeep, 2*tubeshigh
   k = 0
@@ -20,20 +26,25 @@ def create_rcmap(tubeshigh, rowsdeep):
       k += 1
   return RC
 
+
 def get_neighbors(r, c, steps, rows, cols):
+  """ return a list of neighbors of tube at (r,c)
+  """
   return [(r+i, c+j) for (i, j) in steps if 0 <= r + i < rows and 0 <= c + j < cols]
+
 
 def create_adj(tubeshigh, rowsdeep):
   """ Return a fully populated adj list dictionary for a
-      staggered tube coil tube bank. The neighbors order
-      is arranged to be in a suitable order for a fast
-      hamiltonian search.
+      staggered tube coil tube bank.
+      The neighbors order are  arranged to be suitable
+      for a fast hamiltonian search.
   """
 
   if tubeshigh <= 0 or rowsdeep <= 0:
     raise ValueError("tubeshigh and rowsdeep must be positive integers.")
 
-  # conventional array dimensions
+  # Use conventional array dimensions with
+  # rows on the y-scale and cols on the x-scale.
   rows = 2 * tubeshigh
   cols = rowsdeep
 
@@ -83,6 +94,7 @@ def create_adj(tubeshigh, rowsdeep):
 
   return result
 
+
 def filter_adj(adj, arr):
   """ remove from adj values not in arr
   """
@@ -95,6 +107,7 @@ def filter_adj(adj, arr):
           temp.append(item)
       result[key] = temp
   return result
+
 
 def diag_order(tubeshigh, rowsdeep):
   """ Return list of tube id's in diagonal order.
@@ -120,6 +133,7 @@ def diag_order(tubeshigh, rowsdeep):
       col -= 1
   return result
 
+
 def calc_factors(n):
   """ Return all factors of n.
   """
@@ -132,8 +146,11 @@ def calc_factors(n):
 
 
 def find_ham_path_heuristic(graph, start, goal):
-  ## Implement a heuristic-based approach (e.g., 2-Opt)
+  """ Implement a heuristic-based approach (e.g., 2-Opt) """
+
+  # still to be done ...
   pass
+
 
 def find_ham_path(graph, start, goal):
   """ Hamiltonian path search (recursive).
@@ -154,29 +171,33 @@ def find_ham_path(graph, start, goal):
 
 
 def chunk(arr_range, arr_size):
+  """ break list into chunks of arr_size
+  """
   arr_range = iter(arr_range)
   return list(iter(lambda: tuple(islice(arr_range, arr_size)), ()))
 
 
-def calc(tubeshigh=14, rowsdeep=6, nc=4):
-  """ calc circuits
+def calc_circs(tubeshigh=14, rowsdeep=6, nc=4):
+  """ Calculate the ideal circuits of a staggered tube bank.
+      tubeshigh = number of tubes high
+      rowsdeep = number of rows deep
+      nc = number of circuits
   """
+
   global RC
 
   tubecount = tubeshigh * rowsdeep
   factors = calc_factors(tubecount)
-  #print(factors)
 
-  tpc = tubecount // nc # tubes per circ
+  tpc = tubecount // nc  # number of tubes per circuit
 
-  # init a global index converter
+  # initialize a global index converter
   RC = create_rcmap(tubeshigh, rowsdeep)
 
   # create a full adj list
   graph = create_adj(tubeshigh, rowsdeep)
-  #print(graph)
 
-  # pull out a short list from the 1st tpc
+  # get a sorted list in the ideal order
   diag_tube_list = diag_order(tubeshigh, rowsdeep)
 
   # filter out the None values
@@ -185,8 +206,12 @@ def calc(tubeshigh=14, rowsdeep=6, nc=4):
   # break into chunks of tubes per circuit
   circs = chunk(filtered_list, tpc)
 
+  # paths will be a list of circuits,
+  # where each circuit is a list of index number.
   paths = []
+
   for tubes_in_circ in circs:
+
     # filter the graph
     circ = filter_adj(graph, tubes_in_circ)
 
@@ -201,8 +226,3 @@ def calc(tubeshigh=14, rowsdeep=6, nc=4):
 
   return paths
 
-
-# ---------------------------------------------------------
-
-if __name__ == "__main__":
-  paths = calc()

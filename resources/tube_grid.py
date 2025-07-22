@@ -1,4 +1,4 @@
-""" 
+"""
 Module for plotting coil tube bank.
 It includes methods to:
   - Generate a tube layout
@@ -31,7 +31,7 @@ def write_note(canvas, xy, text):
   x = xy["x"]
   y = xy["y"]
   xy["y"] += 30
-  canvas.create_text(x, y, text=text, fill="black", 
+  canvas.create_text(x, y, text=text, fill="black",
     font=("Consolas", 14), justify="left", anchor="nw")
 
 class TubeBank(tk.Tk):
@@ -44,7 +44,7 @@ class TubeBank(tk.Tk):
   sy = 19  # more suitable for a neater plot
   sx = 33  # keep same proportion (0.866*30=25.98)
 
-  def __init__(self, title="App", 
+  def __init__(self, title="App",
     size=(600, 600), xypos=(600, 10), icon=None,
     tubeshigh=14, rowsdeep=6, pattern="staggered"):
     super().__init__()
@@ -55,23 +55,23 @@ class TubeBank(tk.Tk):
 
     # Container frame
     frame = ttk.Frame(self)
-    frame.pack(expand=True, 
-      fill="both", side="top", 
+    frame.pack(expand=True,
+      fill="both", side="top",
       padx=0, pady=0)
 
     # Drawing canvas for tube bank
-    self.canvas = tk.Canvas(frame, 
+    self.canvas = tk.Canvas(frame,
       background=colors["canvas"],
-      borderwidth=0, highlightthickness=0, 
+      borderwidth=0, highlightthickness=0,
       relief="flat")
-    self.canvas.pack(expand=True, 
+    self.canvas.pack(expand=True,
       fill="both", side="top",
       padx=0, pady=0)
     self.canvas.update()
 
     self.reset()
 
-  def reset(self, 
+  def reset(self,
     tubeshigh=14, rowsdeep=6, pattern="staggered"):
 
     if pattern.casefold() == "staggered":
@@ -89,7 +89,7 @@ class TubeBank(tk.Tk):
 
     self.to_coord = defaultdict(lambda: (-1,-1))
     self.to_index = defaultdict(lambda: None)
-    
+
     self.generate_index()
 
     self.draw_end_plate()
@@ -97,9 +97,9 @@ class TubeBank(tk.Tk):
     # Notes
     xy = {"x": 280, "y": 20}
     for note in [
-      "6 rows deep", 
-      "14 tubes high", 
-      "4 circuits", 
+      "6 rows deep",
+      "14 tubes high",
+      "4 circuits",
       "21 tubes/circ"]:
       write_note(self.canvas, xy, note)
 
@@ -115,7 +115,7 @@ class TubeBank(tk.Tk):
     tubeshigh = self.tubeshigh
     rowsdeep = self.rowsdeep
     staggered = self.staggered
-    
+
     self.to_coord.clear()
     self.to_index.clear()
 
@@ -133,7 +133,7 @@ class TubeBank(tk.Tk):
 
   def draw_end_plate(self):
     """ draw end-plate
-    """    
+    """
     x0 = TubeBank.x0
     y0 = TubeBank.y0
     sx = TubeBank.sx
@@ -156,7 +156,7 @@ class TubeBank(tk.Tk):
         fill=colors["tube"])
 
       # Add tube label
-      self.canvas.create_text(x+6, y-11, 
+      self.canvas.create_text(x+6, y-11,
         text=f"{k}", font=("tahoma", 8),
         justify="center", anchor="center")
 
@@ -180,7 +180,7 @@ class TubeBank(tk.Tk):
 
 if __name__ == "__main__":
 
-  tubebank = TubeBank(title="CoilCirc", 
+  tubebank = TubeBank(title="CoilCirc",
     tubeshigh=14, rowsdeep=6, pattern="staggered")
   circ = tubebank.calc_circ(2)
   tubebank.draw_circs(circ)
