@@ -57,9 +57,11 @@ def draw_circuits(canvas, XY, circs, style=DrawingStyle.NICE):
 
     # draw circuits with nice appearance:
     # - alternating color and line width.
+    color1 = "tomato"
+    color2 = "cadetblue"
 
     for i,circ in enumerate(circs):
-      color = "tomato" if i % 2 == 0 else "cadetblue"
+      color = color1 if i % 2 == 0 else color2
       x1, y1 = XY[circ[0]]
       for j in range(1, len(circ)):
         linewidth = 0 if j % 2 == 0 else 3
