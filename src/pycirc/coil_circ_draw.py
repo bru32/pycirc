@@ -15,7 +15,7 @@ x0, y0 = 40, 10 # x and y position of top left tube
 sx, sy = 12, 8  # x and y scale factors
 
 
-class DrawingStyle:
+class DrawingStyle(StrEnum):
   BASIC = "basic"
   NICE = "nice"
   @classmethod
