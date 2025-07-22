@@ -83,8 +83,8 @@ def draw_circuits(canvas, XY, circs, style=DrawingStyle.NICE):
 def draw_tube(canvas, x, y):
   """ Draw a single tube at (x,y) screen coordinates.
   """
-  w = 3
-  coords = x-w, y-w, x+w, y+w
+  tr = 3  # tube radius
+  coords = x-tr, y-tr, x+tr, y+tr
   canvas.create_oval(coords, width=1, outline="black", fill="white")
 
 
@@ -93,4 +93,3 @@ def draw_tube_bank(canvas, XY):
   """
   for x,y in XY:
     draw_tube(canvas, x, y)
-

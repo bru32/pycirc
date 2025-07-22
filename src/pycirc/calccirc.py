@@ -1,4 +1,4 @@
-""" 
+"""
 Coil Circuit Calculator.
 This module calculates the ideal circuits of a staggered tube bank.
 """
@@ -37,9 +37,9 @@ def get_neighbors(r, c, steps, rows, cols):
 
 def create_adj(tubeshigh, rowsdeep):
   """ Return a fully populated adj list dictionary for a
-      staggered tube coil tube bank.
-      The neighbors order are  arranged to be suitable
-      for a fast hamiltonian search.
+      staggered tube coil tube bank.  The neighbors order 
+      are arranged to be suitable for a fast hamiltonian 
+      search.
   """
 
   if tubeshigh <= 0 or rowsdeep <= 0:

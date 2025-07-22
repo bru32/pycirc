@@ -1,4 +1,8 @@
-""" pycirc demo
+""" 
+pycirc demo.
+The circuit calculation returns lists of tube id's. 
+These can be used to draw on any canvas.  The example 
+below demonstrates the use of a tkinter canvas.
 """
 
 __author__ = "Bruce Wernick"
@@ -9,18 +13,17 @@ from pycirc import *
 
 
 root = tk.Tk()
-root.geometry("400x600+500+10")
+root.title("pycirc demo")
 
-frame = tk.Frame(root)
-frame.pack(expand=True, fill="both")
-
-canvas = tk.Canvas(frame)
+canvas = tk.Canvas(root)
 canvas.pack(expand=True, fill="both")
 
 tubeshigh = 14
 rowsdeep = 6
 nc = 4
+
 circs = calc_circs(tubeshigh, rowsdeep, nc)
+
 XY = create_xymap(tubeshigh, rowsdeep)
 draw_circuits(canvas, XY, circs)
 draw_tube_bank(canvas, XY)
