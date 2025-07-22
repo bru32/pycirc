@@ -2,6 +2,8 @@
 
 Python package for circuiting fin and tube coils.
 
+![Example of circuit](images/example.png)
+
 ## Installation
 
 ```bash
