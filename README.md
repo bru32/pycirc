@@ -1,6 +1,14 @@
 # pycirc
 
-Python package for circuiting fin and tube coils.
+Python package for circuiting a staggered 
+fin and tube coil.
+
+You can set the number of tubes high, the 
+number of rows deep and the number of parallel circuits.
+
+The program tries to find a counter-flow and 
+mono-directional group of tubes that are linked 
+with standard U-bends or elbows.
 
 ![Example of circuit](images/example.png)
 

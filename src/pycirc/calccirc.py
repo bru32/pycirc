@@ -1,9 +1,11 @@
-""" Coil Circuit Calculator.
+""" 
+Coil Circuit Calculator.
+This module calculates the ideal circuits of a staggered tube bank.
 """
 
 __author__ = "Bruce Wernick"
 __date__ = "22 July 2025"
-
+__version__ = "0.1.0"
 
 from collections import defaultdict
 from itertools import islice
@@ -225,4 +227,3 @@ def calc_circs(tubeshigh=14, rowsdeep=6, nc=4):
     paths.append(path)
 
   return paths
-

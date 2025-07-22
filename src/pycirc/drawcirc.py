@@ -1,8 +1,10 @@
-""" Staggered tube pattern circuit drawing tool.
+""" 
+Staggered tube pattern circuit drawing tool.
 """
 
 __author__ = "Bruce Wernick"
 __date__ = "22 July 2025"
+__version__ = "0.1.0"
 
 from enum import StrEnum
 
@@ -46,7 +48,9 @@ def create_xymap(tubeshigh, rowsdeep):
 
 def draw_circuits(canvas, XY, circs, style=DrawingStyle.NICE):
   """ Draw the circuits.
-      style = basic or nice
+      - XY is a list of (x,y) screen coord for each tube.
+      - circs is a list of lists of tube indices.
+      - style = basic or nice (default is nice).
   """
 
   if style == DrawingStyle.NICE:
