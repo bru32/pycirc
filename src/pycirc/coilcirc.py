@@ -1,5 +1,4 @@
 """ 
-pycirc demo.
 The circuit calculation returns lists of tube id's. 
 These can be used to draw on any canvas.  The example 
 below demonstrates the use of a tkinter canvas.
