@@ -46,18 +46,22 @@ def do_calc():
 
   # re-calculate all
   circs = calc_circs(tubeshigh, rowsdeep, nc)
-  XY = create_xymap(tubeshigh, rowsdeep)
-  draw_circuits(canvas, XY, circs)
-  draw_tube_bank(canvas, XY)
 
-  # save to database of circuits
-  """
+  # remove duplicates
+  pattern = {}
   for circ in circs:
     a = circ[0]
-    for b in circ:
-      print(b-a, end=",")
-    print()
-  """
+    arr = [x - a for x in circ]
+    if not arr in pattern.values():
+      pattern[a] = arr
+  arr = []
+  for key, value in pattern.items():
+    arr.append([key+a for a in value])
+
+  XY = create_xymap(tubeshigh, rowsdeep)
+  draw_circuits(canvas, XY, arr)
+  draw_tube_bank(canvas, XY)
+
 
 def show_help():
   """ open help page in browser.
