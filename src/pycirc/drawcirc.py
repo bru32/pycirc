@@ -13,8 +13,8 @@ __all__ = ["DrawingStyle", "create_xymap",
            "draw_circuits", "draw_tube_bank"]
 
 # global parameters
-x0, y0 = 40, 10 # x and y position of top left tube
-sx, sy = 12, 8  # x and y scale factors
+x0, y0 = 60, 20 # x and y position of top left tube
+sx, sy = 16, 10  # x and y scale factors
 
 
 class DrawingStyle(StrEnum):
@@ -37,10 +37,10 @@ def create_xymap(tubeshigh, rowsdeep):
   k = 0
   cols, rows = rowsdeep, 2*tubeshigh
   for r in range(rows):
+    y = y0 + r*sy
     col0 = r % 2
     for c in range(col0, cols, 2):
       x = x0 + c*sx
-      y = y0 + r*sy
       XY.append((x,y))
       k += 1
   return XY

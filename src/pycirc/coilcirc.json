@@ -1,5 +1,9 @@
 {
-  "tubeshigh": 16,
-  "rowsdeep": 6,
+  "canvas": {
+    "width": 389,
+    "height": 544
+  },
+  "tubeshigh": 24,
+  "rowsdeep": 4,
   "nc": 4
 }

@@ -30,7 +30,7 @@ class EntryFrame(tk.Frame):
   def create_widgets(self):
     self.label = tk.Label(self, text=self.inputfield.label)
     self.label.pack(padx=2, pady=2)
-    self.edit = tk.Entry(self, width=20, textvariable=self.inputfield.var)
+    self.edit = tk.Entry(self, width=16, textvariable=self.inputfield.var)
     self.edit.pack(padx=5, pady=5)
 
 
@@ -50,6 +50,14 @@ def do_calc():
   draw_circuits(canvas, XY, circs)
   draw_tube_bank(canvas, XY)
 
+  # save to database of circuits
+  """
+  for circ in circs:
+    a = circ[0]
+    for b in circ:
+      print(b-a, end=",")
+    print()
+  """
 
 def show_help():
   """ open help page in browser.
@@ -63,14 +71,31 @@ def show_help():
 def close_app():
   """ Exit the application.
   """
+
+  # read the last canvas size
+  canvas_width = canvas.winfo_width()
+  canvas_height = canvas.winfo_height()
+
   with open("coilcirc.json", "w") as f:
     config = {
+      "canvas": {"width": canvas_width, "height": canvas_height},
       "tubeshigh": var1.get(),
       "rowsdeep": var2.get(),
       "nc": var3.get()}
     json.dump(config, f, indent=2)
+
   root.quit()
   root.destroy()  
+
+
+def on_mouse_wheel(event):
+  """ Handle mouse wheel scrolling.
+  """
+  if event.delta > 0:
+    canvas.yview_scroll(-1, "units")
+  else:
+    canvas.yview_scroll(1, "units")
+
 
 # ---------------------------------------------------------
 
@@ -96,6 +121,8 @@ if __name__ == "__main__":
 
   with open("coilcirc.json", "r") as f:
     config = json.load(f)
+    canvas_width = config.get("canvas", {}).get("width", 300)
+    canvas_height = config.get("canvas", {}).get("height", 500)
     tubeshigh = config.get("tubeshigh", tubeshigh)
     rowsdeep = config.get("rowsdeep", rowsdeep)
     nc = config.get("nc", nc)
@@ -120,7 +147,23 @@ if __name__ == "__main__":
     width=10, command=close_app)
   btn3.pack(padx=5, pady=5)
 
-  canvas = tk.Canvas(frame1, background="ivory2")
-  canvas.pack(expand=True, fill="both")
+  frame3 = tk.Frame(frame1)
+  frame3.pack(side="left", fill="both", expand=True)
+
+  canvas = tk.Canvas(frame3, background="ivory2", 
+    scrollregion=(0,0,1000,4000))
+
+
+  hbar = tk.Scrollbar(frame3,orient="horizontal")
+  hbar.pack(side="bottom",fill="x")
+  hbar.config(command=canvas.xview)
+  vbar=tk.Scrollbar(frame3,orient="vertical")
+  vbar.pack(side="right",fill="y")
+  vbar.config(command=canvas.yview)
+  canvas.config(width=canvas_width, height=canvas_height)
+  canvas.config(xscrollcommand=hbar.set, yscrollcommand=vbar.set)
+  canvas.pack(side="left", expand=True, fill="both")
+
+  root.bind_all("<MouseWheel>", on_mouse_wheel)
 
   root.mainloop()

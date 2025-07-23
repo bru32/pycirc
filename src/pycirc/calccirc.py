@@ -29,6 +29,12 @@ def create_rcmap(tubeshigh, rowsdeep):
   return RC
 
 
+def rc_to_index(r, c, cols):
+  if r % 2 != c % 2: return None
+  if not(0 <= c < cols): return None
+  return (c + r * cols) // 2
+
+
 def get_neighbors(r, c, steps, rows, cols):
   """ return a list of neighbors of tube at (r,c)
   """
