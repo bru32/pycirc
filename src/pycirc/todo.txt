@@ -1,0 +1,34 @@
+Version 0.1.0
+24 July 2025
+-----------------------------------------------------------
+
+Add zoom feature
+
+Add notes about current circuit.
+  Tubes per circuit
+  Number of unlinked tubes 
+
+Implement a factors list:
+  to make it easy to pick the number of circuits.
+
+Add circuit database
+  -save to database
+  -browse circuit database
+  -load from database
+
+Incorporate manual editing of circuit
+
+Documentation
+  -Write online documentation
+  -Write help file
+  -Write article about circuiting
+  -Write article about installing CoilCirc and Python
+
+Implement the common circuit logic
+
+Main menu
+  -New (reset)
+  -Save circuit results
+  -Print circuit report
+  -Screen snapshot
+

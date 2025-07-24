@@ -1,0 +1,13 @@
+{
+  "mainform": {
+    "x": 336,
+    "y": 50
+  },
+  "canvas": {
+    "width": 377,
+    "height": 486
+  },
+  "tubeshigh": 16,
+  "rowsdeep": 4,
+  "nc": 4
+}

@@ -79,14 +79,17 @@ def close_app():
   # read the last canvas size
   canvas_width = canvas.winfo_width()
   canvas_height = canvas.winfo_height()
+  x_pos = root.winfo_x()
+  y_pos = root.winfo_y()
 
-  with open("coilcirc.json", "w") as f:
+  with open("config.json", "w") as fp:
     config = {
+      "mainform": {"x": x_pos, "y": y_pos},
       "canvas": {"width": canvas_width, "height": canvas_height},
       "tubeshigh": var1.get(),
       "rowsdeep": var2.get(),
       "nc": var3.get()}
-    json.dump(config, f, indent=2)
+    json.dump(config, fp, indent=2)
 
   root.quit()
   root.destroy()  
@@ -123,13 +126,17 @@ if __name__ == "__main__":
   rowsdeep = 6
   nc = 4
 
-  with open("coilcirc.json", "r") as f:
-    config = json.load(f)
+  with open("config.json", "r") as fp:
+    config = json.load(fp)
+    x_pos = config.get("mainform", {}).get("x", 100)
+    y_pos = config.get("mainform", {}).get("y", 100)
     canvas_width = config.get("canvas", {}).get("width", 300)
     canvas_height = config.get("canvas", {}).get("height", 500)
     tubeshigh = config.get("tubeshigh", tubeshigh)
     rowsdeep = config.get("rowsdeep", rowsdeep)
     nc = config.get("nc", nc)
+
+  root.geometry(f"+{x_pos}+{y_pos}")
 
   var1 = tk.IntVar(value=tubeshigh)
   var2 = tk.IntVar(value=rowsdeep)
@@ -169,5 +176,7 @@ if __name__ == "__main__":
   canvas.pack(side="left", expand=True, fill="both")
 
   root.bind_all("<MouseWheel>", on_mouse_wheel)
+
+  do_calc()  # initial calculation
 
   root.mainloop()
