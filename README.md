@@ -15,7 +15,7 @@ with standard U-bends or elbows.
 ## Installation
 
 ```bash
-$ pip install pycirc
+$ pip install xxxxx
 ```
 
 ## Usage
